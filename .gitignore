@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+.env
+.env.local
+*.log
+
+# Personal sender profile — never commit
+sender-profile.md
+config/sender-profile.md
