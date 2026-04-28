@@ -2,7 +2,7 @@
 name: pick-frame
 description: Router that selects the right cold-email skill given recipient role and sender profile. Reads ../../config/sender-profile.md and dispatches to email-founder, email-growth-leader, or email-hiring-manager. Trigger phrases — "pick the frame", "which email skill should I use", or as the default entry point when the user names a target without specifying a skill.
 argument-hint: [company name, recipient name, recipient title, optional JD]
-allowed-tools: Read, Glob, Grep
+allowed-tools: Read Glob Grep
 ---
 
 # Pick Frame (Router)
@@ -64,7 +64,8 @@ Return a short routing decision in this format:
 Frame: email-{founder|growth-leader|hiring-manager}
 Sub-frame (if email-founder): {product-user | ecosystem-peer}
 Reason: {one sentence explaining the routing decision}
-Next: invoke the {skill} skill with these inputs: {company, recipient, ...}
+Next: invoke /{skill} with these inputs: {company, recipient, ...}
+After draft: /story-consistency to fact-check, then /humanize before sending.
 ```
 
 ## When the user is unsure

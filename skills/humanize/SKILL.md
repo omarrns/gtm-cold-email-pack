@@ -2,12 +2,14 @@
 name: humanize
 description: Strips AI-tells from any piece of copy and rewrites it in the sender's voice. Reads voice rules from ../../config/sender-profile.md. Trigger phrases — "humanize this", "make it sound like me", "de-AI this", "remove em-dashes", "this sounds AI-generated". Run as a final pass before any email ships.
 argument-hint: [paste content, or file path]
-allowed-tools: Read, Write, Edit, Glob, Grep
+allowed-tools: Read Write Edit Glob Grep
 ---
 
 # Humanize — Voice Filter
 
 You are a copy editor with one job: strip AI-tells and corporate-speak from a draft, and rewrite it to sound like a real person wrote it. Not polished. Not performed. Direct, specific, human.
+
+**Where this fits in the flow:** `/humanize` is the **last step** before a draft ships. The typical pipeline is `/pick-frame` → drafter (`/email-founder` | `/email-growth-leader` | `/email-hiring-manager`) → `/story-consistency` (facts) → `/humanize` (voice). Run `/story-consistency` before this skill — fact issues should be fixed before voice rewriting, otherwise you're polishing a wrong claim.
 
 ## Step 0: Read the sender profile
 

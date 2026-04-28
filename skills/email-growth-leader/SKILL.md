@@ -2,7 +2,7 @@
 name: email-growth-leader
 description: Drafts a cold email to a Head of Growth, VP Growth, or growth leader using a stage-matched builder frame. Reads sender positioning from ../../config/sender-profile.md. Trigger phrases — "email the head of growth", "draft the growth email", "outreach to [growth leader name]", "email for [company] growth role."
 argument-hint: [company name, recipient name, role title]
-allowed-tools: Read, Write, Edit, Glob, Grep
+allowed-tools: Read Write Edit Glob Grep
 ---
 
 # Email Growth Leader (Stage-Matched Builder Frame)
@@ -35,12 +35,12 @@ Use when ANY of the following are true:
 
 A Head of Growth is evaluating: "Can this person build the growth infrastructure I need stood up right now?" They have a specific operational problem and need evidence the sender has solved it before. They care about **what was built, with what stack, and what happened** — not which market it was built in.
 
-| What works                                | What doesn't                            |
-| ----------------------------------------- | --------------------------------------- |
-| "I just built what you need built"        | "I just left {company name they don't recognize}" |
-| Operational proof carries                 | Domain credibility carries              |
-| "Same stage, same problem, same stack"    | "Same buyer, same market"               |
-| Slightly more proof-heavy email           | Short, insider-vibes email              |
+| What works                             | What doesn't                                      |
+| -------------------------------------- | ------------------------------------------------- |
+| "I just built what you need built"     | "I just left {company name they don't recognize}" |
+| Operational proof carries              | Domain credibility carries                        |
+| "Same stage, same problem, same stack" | "Same buyer, same market"                         |
+| Slightly more proof-heavy email        | Short, insider-vibes email                        |
 
 ## Prerequisites
 

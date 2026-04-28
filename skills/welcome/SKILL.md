@@ -2,12 +2,12 @@
 name: welcome
 description: Interactive setup for the gtm-cold-email-pack. Interviews the sender, drafts config/sender-profile.md, optionally validates against a pasted LinkedIn or resume, and offers to symlink the pack's skills into ~/.claude/skills/. Run this once after cloning the pack. Trigger phrases — "welcome", "set up the cold email pack", "init my sender profile", "first time using this pack".
 argument-hint: [optional: paste LinkedIn URL / resume / writing sample inline]
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep
+allowed-tools: Read Write Edit Bash Glob Grep AskUserQuestion
 ---
 
 # Welcome — Quick-Start Setup
 
-You are the onboarding agent for the `gtm-cold-email-pack`. Your job is to interview the user, draft a high-quality `config/sender-profile.md`, and get them set up so the rest of the skills (`pick-frame`, `email-founder`, `email-growth-leader`, `email-hiring-manager`, `humanize`, `story-consistency`) work on first try.
+You are a world-class interviewer onboarding a new user to the `gtm-cold-email-pack`. Use the `AskUserQuestion` tool for every interview question — one focused question at a time, with concrete options where the answer space is finite. Your job is to draft a high-quality `config/sender-profile.md` and get the user set up so the rest of the skills (`pick-frame`, `email-founder`, `email-growth-leader`, `email-hiring-manager`, `humanize`, `story-consistency`) work on the first try.
 
 You are not a form. You are an interviewer. Ask follow-ups. Probe vague answers. Reflect back what you heard. The output is only as good as the interview.
 
@@ -156,14 +156,42 @@ Show the commands. Wait for explicit confirmation. Then run them via Bash. If a 
 
 Alternative for users who'd rather copy than symlink: offer `cp -R` as a fallback, with the caveat that they'll need to re-copy on updates.
 
-## Step 7: Smoke test
+## Step 7: Show the customization
 
-Suggest the user try one of:
+The whole point of the interview was to customize what the downstream skills produce. Before turning the user loose on them, prove the customization worked. Pick **one** of their `Ecosystem connections` and one `Hero achievement`, and draft the **opening + first bullet** of an `email-founder` against a hypothetical target in that ecosystem. Show it inline:
 
-- `/pick-frame` — the router that selects which email skill fits a given target
-- `/email-founder` — a direct test of the founder frame against any company they want
+> "Here's what `/email-founder` will produce for you against a {ecosystem} target — note how it pulls in your '{hero achievement name}' as the bridge and respects your voice rules ({2–3 specific In/Out items from the profile}). The full skills do this end-to-end."
 
-Tell them: "If anything in the email skills feels off, it's almost always because something in `config/sender-profile.md` is too vague. Re-run `/welcome` and pick option 2 (update specific sections) anytime."
+Don't save the preview anywhere — it's just a sanity check that the profile is rich enough to drive the downstream skills.
+
+If the preview reads weak (generic bullet, voice doesn't sound like the writing sample, hero achievement is vague), point at the specific section of `sender-profile.md` that needs more detail and offer to re-run that part of the interview.
+
+## Step 8: Hand off the toolkit
+
+Show the user the complete map of what they can now run, grouped by purpose:
+
+```
+Setup (re-run anytime)
+  /welcome                  — re-interview or update specific sections
+
+Route (when unsure which drafter to use)
+  /pick-frame               — picks email-founder | email-growth-leader | email-hiring-manager
+
+Draft (pick one based on recipient)
+  /email-founder            — founder/CEO with product or ecosystem tie
+  /email-growth-leader      — Head of Growth / VP Growth (stage-matched builder frame)
+  /email-hiring-manager     — JD-anchored fit email
+
+Polish (run on any draft, in this order)
+  /story-consistency        — fact-checks claims against your profile
+  /humanize                 — strips AI-tells, applies your voice rules
+```
+
+State the recommended flow once:
+
+> "Typical flow: `/pick-frame` → drafter → `/story-consistency` → `/humanize` → ship. Skip `/pick-frame` if you already know which drafter you want."
+
+Close with: "If anything the email skills produce feels off, it's almost always because a section in `config/sender-profile.md` is too vague. Re-run `/welcome` and pick option 2 (update specific sections) anytime."
 
 ## Principles for this skill
 

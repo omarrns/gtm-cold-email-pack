@@ -2,7 +2,7 @@
 name: email-founder
 description: Drafts a cold email to a founder or CEO at a company where the sender has a PRODUCT CONNECTION or ECOSYSTEM CONNECTION. Uses a "product user + specific business gap insight" frame. Reads sender positioning from ../../config/sender-profile.md. Trigger phrases — "email the founder", "cold email for [company] CEO", "founder email", "draft the founder email."
 argument-hint: [company name, founder name, optional gap observation]
-allowed-tools: Read, Write, Edit, Glob, Grep
+allowed-tools: Read Write Edit Glob Grep
 ---
 
 # Email Founder / CEO (Product User + Insight Frame)

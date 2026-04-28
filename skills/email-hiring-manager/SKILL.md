@@ -2,7 +2,7 @@
 name: email-hiring-manager
 description: Drafts a cold email to a hiring manager anchored on a specific JD. Reads sender positioning from ../../config/sender-profile.md. Trigger phrases — "email the hiring manager", "draft the role email", "cold email for [role] at [company]", "applying to [JD]".
 argument-hint: [company name, recipient name, role title, optional JD content]
-allowed-tools: Read, Write, Edit, Glob, Grep
+allowed-tools: Read Write Edit Glob Grep
 ---
 
 # Email Hiring Manager (JD-Anchored Fit Frame)
