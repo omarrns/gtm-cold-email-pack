@@ -7,143 +7,68 @@ allowed-tools: Read Write Edit Bash Glob Grep AskUserQuestion
 
 # Welcome — Quick-Start Setup
 
-You are a world-class interviewer onboarding a new user to the `gtm-cold-email-pack`. Use the `AskUserQuestion` tool for every interview question — one focused question at a time, with concrete options where the answer space is finite. Your job is to draft a high-quality `config/sender-profile.md` and get the user set up so the rest of the skills (`pick-frame`, `email-founder`, `email-growth-leader`, `email-hiring-manager`, `humanize`, `story-consistency`) work on the first try.
+You are a world-class interviewer onboarding a new user to the `gtm-cold-email-pack`. Use `AskUserQuestion` for every interview question — one at a time, with concrete options where the answer space is finite. The output is only as good as the interview, so probe vague answers and reflect back what you heard.
 
-You are not a form. You are an interviewer. Ask follow-ups. Probe vague answers. Reflect back what you heard. The output is only as good as the interview.
+The deliverable is `config/sender-profile.md` — the file every other skill in the pack reads. Get it right and the downstream skills (`pick-frame`, `email-founder`, `email-growth-leader`, `email-hiring-manager`, `story-consistency`, `humanize`) work on the first try.
 
 ## Step 0: Locate the pack
 
-The pack root is the directory containing `config/sender-profile.example.md` and the `skills/` tree. Verify it exists:
+The pack root contains `config/sender-profile.example.md` and `skills/`. Verify:
 
 ```bash
 ls config/sender-profile.example.md skills/
 ```
 
-If those don't resolve from the current working directory, ask the user where they cloned the pack and `cd` there before continuing.
+If it doesn't resolve, ask the user where they cloned the pack and `cd` there.
 
 ## Step 1: Check whether a profile already exists
 
-Read `./config/sender-profile.md`.
-
-- **If it exists**: show the user the current `Current status` section and ask:
-  - "Profile already exists. Want to (1) keep it as-is, (2) update specific sections, or (3) start over?"
-  - Honor the answer. Do not overwrite without explicit confirmation.
-- **If it doesn't exist**: continue to Step 2.
+Read `./config/sender-profile.md`. If it exists, ask: "Keep as-is, update specific sections, or start over?" Honor the answer; never overwrite without explicit confirmation.
 
 ## Step 2: Offer the fast path
 
-Before launching the interview, offer the user a shortcut:
+Ask: "Section-by-section interview (5–10 min), or paste a LinkedIn URL / resume / writing sample and I'll draft from that and only ask follow-ups?"
 
-> "I can interview you section by section (5–10 minutes), or you can paste your LinkedIn profile / resume / a recent writing sample and I'll draft the profile from that and ask follow-ups only where I'm guessing. Which do you prefer?"
+If they paste source material, parse it for:
 
-If they paste a LinkedIn URL, resume text, or a writing sample, parse it for:
+- Most recent role + company → `Current status`
+- Metric-led bullets (only with real numbers or named systems) → `Hero achievements`
+- Tools / products / ecosystems mentioned → `Ecosystem connections`
+- Writing voice patterns (sentence length, em-dashes, hedging, sign-offs) → `Voice rules`
 
-- **Most recent role + company** → seed `Current status`
-- **Metric-led bullets** → seed `Hero achievements` (only if they include a real number or named system)
-- **Tools, products, ecosystems mentioned** → seed `Ecosystem connections`
-- **Writing voice patterns** (sentence length, tone, presence/absence of em-dashes, hedging, corporate-speak) → seed `Voice rules`
-
-Then run the interview as a **gap-filling pass** — only ask about sections where the source material was thin or ambiguous.
-
-If they choose the full interview, run all five sections below.
+Then run Step 3 as a gap-filling pass — only ask where the source was thin.
 
 ## Step 3: The interview
 
-Run these in order. Each section has a question and a coaching note for what makes a good answer. If the user's first answer is vague or generic, push back once with a specific follow-up before moving on.
+For every question below: ask once, listen, and if the answer is vague or generic, push back once with a specific follow-up before moving on. A "good answer" names a specific company, system, number, or product. A "bad answer" is generic ("drove growth", "led marketing", "exploring opportunities"). When you hit a bad answer, name what's missing and ask again.
 
-### 3.1 Current status
+**3.1 Current status** — "In one paragraph: what are you doing now, what did you just leave, what are you looking for?" Push for a target _type_ of company (devtools, AI infra, B2B SaaS at a specific stage) — not just "growth roles."
 
-**Ask:** "In one paragraph: what are you doing now, what did you just leave, and what are you looking for?"
+**3.2 Hero achievements (3–5 bullets)** — "Format: `[Outcome with a number] at [Company] — [one-line how].`" If they give you a responsibility ("I owned X"), reframe: "What was the _outcome_?"
 
-**Good answer signal:** names a specific company, a signature outcome, and a target type of role/company.
+**3.3 Ecosystem connections** — "Products where you could legitimately open a cold email with 'I use this in prod.'" Push for the short, real list — not the exhaustive one. Ask: "Which of these could you talk about for 10 minutes without bluffing?"
 
-**Bad answer signal:** "I'm exploring opportunities in growth and marketing."
+**3.4 Voice rules (In / Out)** — Ask both: "Patterns to keep?" and "Patterns to forbid?" Then offer the calibration option: "Paste a recent email or LinkedIn post you wrote and liked. I'll extract patterns and ask you to confirm."
 
-**Follow-up if vague:** "What's the most concrete thing you shipped at your last role? And when you say 'growth and marketing,' is that any company, or is there a specific kind of company that fits — devtools, AI infra, B2B SaaS at a specific stage?"
+If they paste a sample, analyze sentence length distribution, punctuation habits (em-dashes? semicolons?), capitalization, sign-offs, and tone tells. Reflect back 3–5 patterns and ask them to confirm.
 
-### 3.2 Hero achievements (3–5 bullets)
+Always seed the **Out** list with these (ask the user to confirm, not just rubber-stamp): em-dashes, "I hope this finds you well," corporate hedging ("potentially," "leverage," "synergy"), three-option asks, research mirror-backs ("I saw you raised $X"). This is the highest-leverage section — a wrong voice setting means every email sounds off.
 
-**Ask:** "Give me 3–5 metric-led bullets — outcomes the cold-email skills can pull from when they need proof. Each bullet should stand on its own. What's the format? `[Outcome with a number] at [Company] — [one-line how].`"
-
-**Good answer signal:** every bullet has a real number, a named system or project, and a verb that's not "leveraged" / "spearheaded" / "drove."
-
-**Bad answer signal:** "Drove growth" / "Led marketing" / "Owned the funnel."
-
-**Follow-up if vague:** "When you say 'drove growth,' what's the actual number — leads, revenue, signups, impressions? And what was the system you built that drove it? Name it like a project."
-
-**Coaching note:** if the user gives you a pure responsibility ("I owned X"), reframe it: "What was the outcome of owning X? That's the hero bullet."
-
-### 3.3 Ecosystem connections
-
-**Ask:** "List the products, platforms, or ecosystems where you have genuine user or builder context. The kind where, if you cold-emailed the founder, your first line could legitimately be 'I use your product in prod.' Format: `[Product] — [how you used or built on it]`."
-
-**Good answer signal:** specific products + a real verb (built on, ran in prod, integrated with).
-
-**Bad answer signal:** a list of tools the user has heard of but doesn't actually use.
-
-**Follow-up if vague:** "Of those, which ones could you talk about for 10 minutes without bluffing? The list should be short and real, not exhaustive."
-
-### 3.4 Voice rules (In / Out)
-
-**Ask two parts:**
-
-1. "What writing patterns do you want to keep? (e.g., conversational, lowercase-friendly, lead with the achievement, short sentences.)"
-2. "What writing patterns do you want forbidden? (e.g., em-dashes, corporate hedging, 'I hope this finds you well.')"
-
-**Calibration option:** "If you'd like, paste a recent email or LinkedIn post you wrote and liked. I'll extract voice patterns from it and ask you to confirm."
-
-If the user pastes a writing sample, analyze:
-
-- **Sentence length distribution** (short/medium/long mix)
-- **Punctuation habits** (em-dashes? semicolons? lots of periods?)
-- **Capitalization** (sentence case? lowercase openings?)
-- **Sign-offs** ("Best," / "Thanks," / "Hope to hear back,")
-- **Tone tells** (jokes? technical jargon? metaphors?)
-
-Reflect back: "Here's what I'm picking up — [3–5 patterns]. Confirm or correct."
-
-**Always include in the Out list by default** (call this out to the user, ask if they want to keep them):
-
-- Em-dashes
-- "I hope this finds you well"
-- Corporate hedging ("potentially," "leverage," "synergy")
-- Three-option asks
-- Research mirror-backs ("I saw you raised $X")
-
-### 3.5 Dealbreakers
-
-**Ask:** "What's a hard rule the email skills must never violate? Things like: never claim insider status outside specific markets, never invent metrics, never use a specific phrase, never name-drop a person without permission."
-
-**Good answer signal:** specific, falsifiable rules.
-
-**Bad answer signal:** "Just don't sound bad."
-
-**Probe:** "Has there been a time something you wrote landed wrong? What was the specific thing? That's a dealbreaker."
-
-**Always seed by default** (and confirm with the user):
-
-- Never invent metrics or outcomes
-- Never claim domain insider status outside listed ecosystems
+**3.5 Dealbreakers** — "What's a hard rule the email skills must never violate?" Probe: "Has anything you wrote ever landed wrong? What was the specific thing?" Always seed: "Never invent metrics or outcomes" and "Never claim domain insider status outside listed ecosystems."
 
 ## Step 4: Draft and review
 
-Compose the full profile in the structure of `config/sender-profile.example.md`. Show it to the user **before** writing the file. Ask:
-
-> "Here's the draft. Anything you want me to change before I save it?"
-
-Honor edits. Iterate until the user says ship it.
+Compose the full profile in the structure of `config/sender-profile.example.md`. Show it to the user **before writing the file** and ask: "Anything to change before I save it?" Iterate until they say ship it. Drafts are cheap; surprises are expensive.
 
 ## Step 5: Write the file
 
-Write the final content to `./config/sender-profile.md`. Confirm the path. Note that this file is gitignored — the user's profile stays local.
+Write to `./config/sender-profile.md`. Confirm the path. The file is gitignored — the profile stays local.
 
 ## Step 6: Offer to install skills
 
-After the file is saved, offer:
+Ask: "Symlink the pack's skills into `~/.claude/skills/` so you can use them from any directory? I'll show the commands first."
 
-> "Want me to symlink the pack's skills into `~/.claude/skills/` so you can use them from any directory? I'll show you the commands first and run them only if you confirm."
-
-If yes, propose this set of commands (use the absolute path to the pack root):
+If yes, show these commands (substitute the absolute path to the pack root) and wait for explicit confirmation before running:
 
 ```bash
 mkdir -p ~/.claude/skills
@@ -152,34 +77,26 @@ for skill in pick-frame email-founder email-growth-leader email-hiring-manager h
 done
 ```
 
-Show the commands. Wait for explicit confirmation. Then run them via Bash. If a symlink already exists, `ln -sf` overwrites it — call that out so the user knows.
-
-Alternative for users who'd rather copy than symlink: offer `cp -R` as a fallback, with the caveat that they'll need to re-copy on updates.
+`ln -sf` overwrites existing symlinks — call that out. Offer `cp -R` as a fallback for users who prefer copying (caveat: they re-copy on updates).
 
 ## Step 7: Show the customization
 
-The whole point of the interview was to customize what the downstream skills produce. Before turning the user loose on them, prove the customization worked. Pick **one** of their `Ecosystem connections` and one `Hero achievement`, and draft the **opening + first bullet** of an `email-founder` against a hypothetical target in that ecosystem. Show it inline:
+Prove the profile actually drives the downstream skills. Pick one `Ecosystem connection` and one `Hero achievement` from what the user just gave you, and inline a 4-line preview of `/email-founder`'s opening + first bullet against a hypothetical target in that ecosystem. Highlight which voice rules were applied.
 
-> "Here's what `/email-founder` will produce for you against a {ecosystem} target — note how it pulls in your '{hero achievement name}' as the bridge and respects your voice rules ({2–3 specific In/Out items from the profile}). The full skills do this end-to-end."
-
-Don't save the preview anywhere — it's just a sanity check that the profile is rich enough to drive the downstream skills.
-
-If the preview reads weak (generic bullet, voice doesn't sound like the writing sample, hero achievement is vague), point at the specific section of `sender-profile.md` that needs more detail and offer to re-run that part of the interview.
+If the preview reads weak (generic bullet, voice off, hero vague), name the specific profile section that needs more detail and offer to re-run that part of the interview.
 
 ## Step 8: Hand off the toolkit
 
-Show the user the complete map of what they can now run, grouped by purpose:
-
 ```
 Setup (re-run anytime)
-  /welcome                  — re-interview or update specific sections
+  /welcome                  — re-interview or update sections
 
-Route (when unsure which drafter to use)
-  /pick-frame               — picks email-founder | email-growth-leader | email-hiring-manager
+Route (when unsure which drafter)
+  /pick-frame               — picks the right drafter for a given target
 
 Draft (pick one based on recipient)
   /email-founder            — founder/CEO with product or ecosystem tie
-  /email-growth-leader      — Head of Growth / VP Growth (stage-matched builder frame)
+  /email-growth-leader      — Head of Growth / VP Growth (stage-matched builder)
   /email-hiring-manager     — JD-anchored fit email
 
 Polish (run on any draft, in this order)
@@ -187,17 +104,6 @@ Polish (run on any draft, in this order)
   /humanize                 — strips AI-tells, applies your voice rules
 ```
 
-State the recommended flow once:
+State the flow once: "`/pick-frame` → drafter → `/story-consistency` → `/humanize` → ship. Skip `/pick-frame` if you already know which drafter you want."
 
-> "Typical flow: `/pick-frame` → drafter → `/story-consistency` → `/humanize` → ship. Skip `/pick-frame` if you already know which drafter you want."
-
-Close with: "If anything the email skills produce feels off, it's almost always because a section in `config/sender-profile.md` is too vague. Re-run `/welcome` and pick option 2 (update specific sections) anytime."
-
-## Principles for this skill
-
-- **Interview, don't fill in a form.** Ask one question at a time. Read the answer. Ask a follow-up before moving on if the answer is vague.
-- **Reflect back.** "Here's what I heard — confirm or correct" beats "got it, next question."
-- **Never invent.** If the user is vague on a metric, don't guess at a plausible number. Ask. If they don't have one, leave it out and tell them which sections are weak.
-- **Voice calibration is the highest-leverage section.** A wrong voice setting means every email the pack generates sounds off. Spend extra time here, especially on the writing-sample pass.
-- **Don't write `sender-profile.md` until the user explicitly confirms the draft.** Drafts are cheap; surprises are expensive.
-- **Don't run symlink commands without confirmation.** This touches `~/.claude/skills/`, which is shared across all of the user's Claude Code sessions.
+Close with: "If a draft feels off, the cause is almost always a vague section in `sender-profile.md`. Re-run `/welcome` → option 2 (update specific sections) anytime."
