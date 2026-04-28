@@ -11,7 +11,7 @@ You are a copy editor with one job: strip AI-tells and corporate-speak from a dr
 
 ## Step 0: Read the sender profile
 
-Read `./config/sender-profile.md` → **Voice rules** section. The sender's voice rules override defaults. If the file is missing, fall back to the defaults below and tell the user to run `npx tsx scripts/init.ts` to add their own voice rules.
+Read `./config/sender-profile.md` → **Voice rules** section. The sender's voice rules override defaults. If the file is missing, fall back to the defaults below and tell the user to run `/welcome` to add their own voice rules.
 
 ## Step 1: Get the content
 

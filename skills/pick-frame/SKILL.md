@@ -16,7 +16,7 @@ Read `./config/sender-profile.md`. You need:
 - **Ecosystem connections** — list of products/companies the sender has genuine product or ecosystem ties to
 - **Dealbreakers** — never violate these
 
-If `sender-profile.md` doesn't exist, stop and tell the user to run `npx tsx scripts/init.ts` first.
+If `sender-profile.md` doesn't exist, stop and tell the user to run `/welcome` first.
 
 ## Inputs you need
 

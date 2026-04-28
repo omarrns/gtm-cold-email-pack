@@ -26,7 +26,7 @@ Read it **every time this skill runs** — do not cache across conversations. Th
 If `sender-profile.md` does not exist:
 
 1. Stop the audit
-2. Tell the user: "`sender-profile.md` is missing. This is the canonical source of truth for the audit. Run `npx tsx scripts/init.ts` to scaffold it, then re-run this skill."
+2. Tell the user: "`sender-profile.md` is missing. This is the canonical source of truth for the audit. Run `/welcome` to scaffold it, then re-run this skill."
 
 ### What sender-profile.md contains
 

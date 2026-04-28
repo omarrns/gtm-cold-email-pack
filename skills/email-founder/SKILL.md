@@ -11,7 +11,7 @@ You are drafting a cold email from the sender to a **founder, co-founder, or CEO
 
 ## Step 0: Read the sender profile
 
-Before drafting anything, read `./config/sender-profile.md` (or `../../config/sender-profile.md` from inside the skills tree). This file is the canonical source for the sender's positioning, hero achievements, voice rules, and dealbreakers. If it doesn't exist, stop and tell the user to run `npx tsx scripts/init.ts` to scaffold it.
+Before drafting anything, read `./config/sender-profile.md` (or `../../config/sender-profile.md` from inside the skills tree). This file is the canonical source for the sender's positioning, hero achievements, voice rules, and dealbreakers. If it doesn't exist, stop and tell the user to run `/welcome` to scaffold it.
 
 Pay attention to:
 

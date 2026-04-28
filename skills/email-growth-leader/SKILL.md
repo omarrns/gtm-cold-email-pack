@@ -17,7 +17,7 @@ Before drafting, read `./config/sender-profile.md`. Pay attention to:
 - **Hero achievements** — pick proof points that match the recipient's stage and stack
 - **Voice rules** — apply on the rewrite pass
 
-If `sender-profile.md` doesn't exist, stop and tell the user to run `npx tsx scripts/init.ts` first.
+If `sender-profile.md` doesn't exist, stop and tell the user to run `/welcome` first.
 
 ## When to use this skill
 
